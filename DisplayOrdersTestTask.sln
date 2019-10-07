@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29319.158
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DisplayOrdersTestTaskBack", "DisplayOrdersTestTaskBack\DisplayOrdersTestTaskBack.csproj", "{811C591E-8280-4AD1-9F2A-EF2A2D196385}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{811C591E-8280-4AD1-9F2A-EF2A2D196385}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{811C591E-8280-4AD1-9F2A-EF2A2D196385}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{811C591E-8280-4AD1-9F2A-EF2A2D196385}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{811C591E-8280-4AD1-9F2A-EF2A2D196385}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C510FE24-A3B3-4350-A1FC-63734345B0BC}
+	EndGlobalSection
+EndGlobal
