@@ -4,12 +4,12 @@ using System.Text;
 
 namespace Models.Interfaces.Storage
 {
-    public interface IOrderDB : IDBEntity
+    public interface IOrderDB<TProposal> : IDBEntity where TProposal : IProposalDB
     {
         String Header { get; set; }
         DateTimeOffset CreationMoment { get; set; }
         OrderStatus Status { get; set; }
-        IList<IProposalDB> Proposals { get; set; }
+        IList<TProposal> Proposals { get; set; }
     }
 }
 
