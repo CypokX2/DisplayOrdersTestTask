@@ -4,9 +4,9 @@ using System.Text;
 
 namespace Models.Interfaces.Storage
 {
-    public interface IProposalDB :IDBEntity
+    public interface IProposal :IDBEntity
     {
-        IProductdB Product { get; set; }
+        IProduct Product { get; set; }
         Int32 Quantity { get; set; }
     }
 }

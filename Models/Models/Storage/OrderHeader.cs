@@ -6,15 +6,10 @@ using System.Text;
 
 namespace Models.Models.Storage
 {
-    public class OrderDB : IOrderDB
+    public class OrderHeader : IOrderHeader
     {
-        public IList<IProposalDB> Proposals { get; set; }
-        public string Header { get; set; }
+        public string OrderName { get; set; }
         public DateTimeOffset CreationMoment { get; set; }
         public OrderStatus Status { get; set; }
-        public int Id { get; set; }
-
-
-
     }
 }

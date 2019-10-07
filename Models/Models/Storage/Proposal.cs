@@ -5,10 +5,10 @@ using System.Text;
 
 namespace Models.Models.Storage
 {
-    public class ProductDB : IProductdB
+    public class Proposal : IProposal
     {
-        public string ProductName { get; set; }
-        public decimal Price { get; set; }
+        public IProduct Product { get; set; }
+        public int Quantity { get; set; }
         public int Id { get; set; }
     }
 }
