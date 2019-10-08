@@ -6,10 +6,10 @@ using System.Text;
 
 namespace Models.Models.Storage
 {
-    public class Order : IOrder<Proposal> 
+    public class Order : IOrder<OrderHeader, OrderDetails, List<Proposal>, Proposal, Product> 
     {        
         public int Id { get; set; }
-        public IOrderHeader Header { get; set; }
-        public IOrderDetails<Proposal> Details { get; set; }
+        public OrderHeader Header { get; set; }
+        public OrderDetails Details { get; set; }
     }
 }

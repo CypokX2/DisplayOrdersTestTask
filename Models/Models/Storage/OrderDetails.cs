@@ -6,8 +6,9 @@ using System.Text;
 
 namespace Models.Models.Storage
 {
-    public class OrderDetails : IOrderDetails<Proposal> 
+    public class OrderDetails : IOrderDetails<List<Proposal>, Proposal, Product> 
     {
-        public IList<Proposal> Proposals { get; set; }
+        public int Id { get; set; }
+        public List<Proposal> Proposals { get; set; }
     }
 }

@@ -5,9 +5,9 @@ using System.Text;
 
 namespace Models.Models.Storage
 {
-    public class Proposal : IProposal
+    public class Proposal : IProposal<Product>
     {
-        public IProduct Product { get; set; }
+        public Product Product { get; set; }
         public int Quantity { get; set; }
         public int Id { get; set; }
     }

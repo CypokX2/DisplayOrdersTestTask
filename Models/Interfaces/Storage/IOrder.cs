@@ -4,10 +4,15 @@ using System.Text;
 
 namespace Models.Interfaces.Storage
 {
-    public interface IOrder<TProposal> : IDBEntity where TProposal : IProposal
+    public interface IOrder<out THeader, out TOrderDetails, out TProposalList, out TProposal, out TProduct> : IDBEntity 
+        where THeader : IOrderHeader 
+        where TOrderDetails : IOrderDetails<TProposalList, TProposal, TProduct>
+        where TProposalList : IList<TProposal>
+        where TProposal : IProposal<IProduct>
+
     {
-        IOrderHeader Header { get; set; }
-        IOrderDetails<TProposal> Details { get; set; }
+        THeader Header { get; }
+        TOrderDetails Details { get;  }
     }
 }
 

@@ -6,7 +6,7 @@ namespace Models.Interfaces
 {
     public enum OrderStatus : Int32
     {
-        Complete,
-        InProgress
+        Complete = 1,
+        InProgress =2
     }
 }

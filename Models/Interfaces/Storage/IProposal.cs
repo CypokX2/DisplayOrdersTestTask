@@ -4,9 +4,10 @@ using System.Text;
 
 namespace Models.Interfaces.Storage
 {
-    public interface IProposal :IDBEntity
+    public interface IProposal<out TProduct> : IDBEntity 
+        where TProduct : IProduct
     {
-        IProduct Product { get; set; }
+        TProduct Product { get; }
         Int32 Quantity { get; set; }
     }
 }

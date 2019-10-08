@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Models.Interfaces.Storage
 {
-    public interface IOrderHeader
+    public interface IOrderHeader : IDBEntity
     {
         String OrderName { get; set; }
         DateTimeOffset CreationMoment { get; set; }
