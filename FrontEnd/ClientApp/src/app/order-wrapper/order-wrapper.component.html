@@ -1,0 +1,46 @@
+<div class="wrapper-grid">
+  <div class="wrapper-grid-item outlined overview">
+    <div class="header-container">
+      <div class="header-item"
+           *ngFor="let header of headers; index as id"
+           (click)="fetchDetails(header.id)">
+        <div [ngClass]="{
+                      'order-status': true,
+                      'order-inprogress': header.status === orderStatusEnum.InProgress,
+                      'order-completed': header.status === orderStatusEnum.Complete
+                      }">
+        </div>
+        <div class="order-name">
+          {{header.orderName}}
+        </div>
+        <div class="order-moment">
+          {{header.creationMomentString}}
+        </div>
+      </div>
+    </div>
+    <div class="status-legend outlined">
+      <div class="status-legend-item"
+           *ngFor="let status of orderStatusNames">
+        <div [ngClass]="{
+                      'order-status': true,
+                      'order-inprogress': status.value === orderStatusEnum.InProgress,
+                      'order-completed': status.value === orderStatusEnum.Complete
+                      }">
+        </div>
+        <div [ngSwitch]="status.value">
+          <div *ngSwitchCase="orderStatusEnum.InProgress"
+               class="text-inprogress">
+            In Progress
+          </div>
+          <div *ngSwitchCase="orderStatusEnum.Complete"
+               class="text-completed">
+            Complete
+          </div>
+        </div>       
+
+      </div>      
+    </div>
+  </div>
+  <div class="wrapper-grid-item outlined order-summary">summary</div>
+  <div class="wrapper-grid-item outlined order-details">details</div>
+</div>

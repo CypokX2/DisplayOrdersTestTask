@@ -1,0 +1,82 @@
+.wrapper-grid {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto 1fr;
+  --inprogress-color: darkmagenta;
+  --completed-color: forestgreen;
+}
+
+.wrapper-grid-item {
+  display:grid;
+  grid-template-rows: auto auto;
+  margin: calc(2px + 0.1em);
+}
+.outlined {
+  outline: 0.2em solid #000;
+}
+
+.overview {
+  grid-area: 1 / 1 / 3 / 2;
+  display:grid;  
+  grid-template-rows:1fr min-content;
+  align-items:start;
+}
+
+.header-container {
+ 
+}
+.header-item {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+
+.order-status {
+  width: 1.5em;
+  height: 1.5em;
+  margin: 0.3em;
+}
+.order-inprogress {
+  background-color: var(--inprogress-color);
+}
+.order-completed {
+  background-color: var(--completed-color);
+}
+.text-inprogress {
+  color: var(--inprogress-color);
+}
+.text-completed {
+  color: var(--completed-color);
+}
+
+.order-name {
+  margin: 0.3em;
+  user-select:none;
+  cursor:default;
+}
+.order-moment {
+  margin: 0.3em;
+  user-select: none;
+  cursor: default;
+}
+
+.status-legend{
+  display:grid;
+  grid-template-rows:auto;
+}
+.status-legend-item{
+  display:grid;
+  grid-template-columns:auto auto;
+}
+
+.order-summary {
+  grid-area: 1 / 2 / 2 / 3;
+  background-color: green;
+}
+
+.order-details {
+  grid-area: 2 / 2 / 3 / 3;
+  background-color: blue;
+  height:1600px;
+}
