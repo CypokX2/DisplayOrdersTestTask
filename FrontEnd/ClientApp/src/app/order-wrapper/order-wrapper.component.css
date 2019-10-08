@@ -49,6 +49,8 @@
 .text-completed {
   color: var(--completed-color);
 }
+.text-default {
+}
 
 .order-name {
   margin: 0.3em;

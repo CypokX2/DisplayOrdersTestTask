@@ -36,6 +36,10 @@
                class="text-completed">
             Complete
           </div>
+          <div *ngSwitchDefault
+               class="text-default">
+            {{status.key}}
+          </div>
         </div>      
       </div>      
     </div>
