@@ -1,0 +1,28 @@
+
+@import '../order-wrapper.component.css';
+
+.order-summary {
+  display: grid;
+  height: 100%;
+  width: 100%;
+  grid-template-columns:min-content 1fr;
+  align-items: center;
+  justify-items: left;
+  grid-column-gap:1em;
+}
+
+  .order-summary > * {
+    margin:0.5em;
+  }
+  
+
+.status-bar{
+  display:grid;
+  grid-template-columns:auto,1fr;
+  grid-auto-flow:column;
+}
+
+.summary-last-raw{
+  margin-top:1em;
+}
+
