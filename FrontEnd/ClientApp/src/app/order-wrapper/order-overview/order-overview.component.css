@@ -1,0 +1,67 @@
+
+@import '../order-wrapper.component.css';
+
+.order-overview {
+  display: grid;
+  height: 100%;
+  width: 100%;
+  grid-template-rows: 1fr min-content;
+  align-items: start;
+}
+
+.header-container {
+ 
+}
+.header-item {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  border-style:dashed;
+  border-width:1px;
+  border-color:transparent;
+  transition-property: border-color;
+  transition-duration: 0.5s;
+}
+  .header-item:hover, .header-item:focus, .header-item:active {
+    border-color: #000;
+  }
+
+.order-status {
+  width: 1.5em;
+  height: 1.5em;
+  margin: 0.3em;
+}
+.order-inprogress {
+  background-color: var(--inprogress-color);
+}
+.order-completed {
+  background-color: var(--completed-color);
+}
+.text-inprogress {
+  color: var(--inprogress-color);
+}
+.text-completed {
+  color: var(--completed-color);
+}
+.text-default {
+}
+
+.order-name {
+  margin: 0.3em;
+  user-select:none;
+  cursor:default;
+}
+.order-moment {
+  margin: 0.3em;
+  user-select: none;
+  cursor: default;
+}
+
+.status-legend{
+  display:grid;
+  grid-template-rows:auto;
+}
+.status-legend-item{
+  display:grid;
+  grid-template-columns:auto auto;
+}
+

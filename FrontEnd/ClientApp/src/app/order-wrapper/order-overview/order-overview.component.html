@@ -1,9 +1,9 @@
-<div class="wrapper-grid">
-  <!--<div class="wrapper-grid-item outlined overview">
+
+  <div class="outlined order-overview">
     <div class="header-container">
       <div class="header-item"
            *ngFor="let header of headers; index as id"
-           (click)="fetchDetails(header.id)">
+           (click)="this.requestFetchDetails.emit(header.id)">
         <div [ngClass]="{
                       'order-status': true,
                       'order-inprogress': header.status === orderStatusEnum.InProgress,
@@ -43,12 +43,4 @@
         </div>      
       </div>      
     </div>
-  </div>-->
-  <order-overview
-                  class="wrapper-grid-item order-overview-container"
-    [headers] = "headers"
-    (requestFetchDetails)="fetchDetails($event)">
-  </order-overview>
-  <div class="wrapper-grid-item outlined order-summary-container">summary</div>
-  <div class="wrapper-grid-item outlined order-details-container">details</div>
-</div>
+  </div>

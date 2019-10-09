@@ -5,10 +5,7 @@ import { Order } from '../Models/Order';
 import { DatePipe } from '@angular/common';
 import { OrderStatus } from '../Models/OrderStatus';
 
-export enum Symbols {
-    equals = '\u003D',
-    notEquals = '!='
-}
+
 
 @Component({
     selector: 'order-wrapper',
@@ -18,19 +15,9 @@ export enum Symbols {
 })
 
 export class OrderWrapperComponent implements OnInit {
-
-    keys = Object.keys;
-
+   
     @Input() apiBaseUrl: string;
-
-    get orderStatusEnum() { return OrderStatus; }
-    get orderStatusNames() {
-        return Object.keys(OrderStatus)
-            .filter((x) => Number.isNaN(parseInt(x, 10)))
-            .map((key) => {
-                return { key, value: OrderStatus[key] };
-            });
-    }
+    
     
     public headers: HeaderView[];
     public selectedOrder: Order;
