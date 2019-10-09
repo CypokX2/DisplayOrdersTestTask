@@ -1,10 +1,10 @@
-import { Component, Inject, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
+import { Component, Inject, OnInit, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { OrderHeader } from '../Models/OrderHeader';
 import { Order } from '../Models/Order';
-import { DatePipe } from '@angular/common';
-import { OrderStatus } from '../Models/OrderStatus';
-import { OrderDetails } from '../Models/OrderDetails';
+import { DatePipe, DecimalPipe } from '@angular/common';
+import { HeaderView, convertHeader } from './Scaffolding/ViewModels/HeaderView';
+import { OrderView, convertOrder } from './Scaffolding/ViewModels/OrderView';
 
 
 
@@ -45,37 +45,4 @@ export class OrderWrapperComponent implements OnInit {
     }
 
    
-}
-
-export class HeaderView {
-
-    public id: number;
-    public orderName: string;
-    public creationMomentString: string;
-    public status: OrderStatus;
-}
-function convertHeader(h: OrderHeader, datePipe:DatePipe) : HeaderView{
-    let header: HeaderView= {
-        id: h.id,
-        orderName: h.orderName,
-        status: h.status,
-        creationMomentString: datePipe.transform(h.creationMoment, 'dd.MM.yyyy HH:mm')
-    };
-    return header;
-}
-
-export class OrderView {
-    public id: number;
-    public header: HeaderView;
-    public details: OrderDetails;
-}
-
-function convertOrder(o: Order, datePipe: DatePipe): OrderView { 
-    let headerV: HeaderView = convertHeader(o.header, datePipe);
-    let order: OrderView =  {
-        id: o.id,
-        header: headerV,
-        details:o.details
-    }
-    return order;
 }

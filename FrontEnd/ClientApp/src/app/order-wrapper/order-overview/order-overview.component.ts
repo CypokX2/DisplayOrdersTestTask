@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { OrderStatus } from '../../Models/OrderStatus';
+import { HeaderView } from '../Scaffolding/ViewModels/HeaderView';
 
 @Component({
     selector: 'order-overview',
@@ -27,12 +28,4 @@ export class OrderOverviewComponent implements OnInit {
                 return { key, value: OrderStatus[key] };
             });
     }
-}
-
-export class HeaderView {
-
-    public id: number;
-    public orderName: string;
-    public creationMomentString: string;
-    public status: OrderStatus;
 }

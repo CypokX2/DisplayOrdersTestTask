@@ -1,1 +1,1 @@
-{"version":3,"file":"Proposal.js","sourceRoot":"","sources":["Proposal.ts"],"names":[],"mappings":";;AAEA;IAAA;IAIA,CAAC;IAAD,eAAC;AAAD,CAAC,AAJD,IAIC;AAJY,4BAAQ"}
+{"version":3,"file":"Proposal.js","sourceRoot":"","sources":["Proposal.ts"],"names":[],"mappings":";;AAGA;IAAA;IAIA,CAAC;IAAD,eAAC;AAAD,CAAC,AAJD,IAIC;AAJY,4BAAQ;AAMrB,SAAgB,uBAAuB,CAAC,QAAkB;IACtD,OAAO,QAAQ,CAAC,OAAO,CAAC,KAAK,GAAG,QAAQ,CAAC,QAAQ,CAAC;AACtD,CAAC;AAFD,0DAEC"}

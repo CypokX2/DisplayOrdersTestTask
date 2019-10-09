@@ -7,6 +7,7 @@
   width: 100%;
   grid-template-rows: 1fr min-content;
   align-items: start;
+  --legend-backgroind-color: white;
 }
 
 .header-container {
@@ -38,11 +39,12 @@
   cursor: default;
 }
 
-.status-legend{
-  display:grid;
-  grid-template-rows:auto;
-  position:sticky;
-  bottom:0;
+.status-legend {
+  display: grid;
+  grid-template-rows: auto;
+  position: sticky;
+  bottom: 0;
+  background-color: var(--legend-backgroind-color);
 }
 .status-legend-item{
   display:grid;

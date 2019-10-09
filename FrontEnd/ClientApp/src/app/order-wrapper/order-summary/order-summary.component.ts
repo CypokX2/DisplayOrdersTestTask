@@ -1,7 +1,8 @@
-import { Component, OnInit, Output, EventEmitter, Input, OnChanges } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 import { OrderStatus } from '../../Models/OrderStatus';
-import { OrderView } from '../order-wrapper.component';
 import { Decimal } from '../../../../../wwwroot/lib/decimal.js/decimal.min.js';
+import { OrderView } from '../Scaffolding/ViewModels/OrderView';
+import { getTotalOrderAmount } from '../../Models/OrderDetails';
 
 @Component({
     selector: 'order-summary',
@@ -21,22 +22,13 @@ export class OrderSummaryComponent implements OnInit {
 
     get orderStatusEnum() { return OrderStatus; }
 
-    calcTotal() : Decimal {
+    totalAmount() : string {
         if (this.selectedOrder) {
-            return this.selectedOrder.details.proposals
-                .map(p => {
-                    return p.product.price * p.quantity;
-                })
-                .reduce((sum: Decimal, current) => Decimal.add(sum, current), 0);;
+            return getTotalOrderAmount(this.selectedOrder.details);
         }
         else {
-            return NaN;
+            '';
         }
-    }
-    stringifyDecimal(dec: Decimal): string {      
-
-        let st = (dec && dec != NaN) ? dec : '';
-        return st;
     }
 }
 

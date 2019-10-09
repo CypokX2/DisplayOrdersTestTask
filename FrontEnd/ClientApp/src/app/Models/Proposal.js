@@ -6,4 +6,8 @@ var Proposal = /** @class */ (function () {
     return Proposal;
 }());
 exports.Proposal = Proposal;
+function calcTotalProposalAmount(proposal) {
+    return proposal.product.price * proposal.quantity;
+}
+exports.calcTotalProposalAmount = calcTotalProposalAmount;
 //# sourceMappingURL=Proposal.js.map
