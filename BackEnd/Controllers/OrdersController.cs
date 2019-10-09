@@ -51,6 +51,8 @@ namespace BackEnd.Controllers
             {
                  var result = await storage.Orders.Include(o => o.Details)
                                                      .ThenInclude(d => d.Proposals)
+                                                        .ThenInclude(p => p.Product)
+                                                    .Include(o => o.Header)
                                             .Where(o => o.Id == orderID)
                                             .SingleOrDefaultAsync();
                  if (result == null)
