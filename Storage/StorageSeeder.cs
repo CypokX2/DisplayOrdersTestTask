@@ -41,10 +41,10 @@ namespace Storage
                 {
                     Proposals = new List<Proposal>()
                     {
-                        genProposal(p1, 1),
-                        genProposal(p2, 5),
-                        genProposal(p3, 1),
-                        genProposal(p4, 2)
+                        genProposal(p1, 8),
+                        genProposal(p2, 15),
+                        genProposal(p3, 40),
+                        genProposal(p4, 1)
                     }
                 }
 
