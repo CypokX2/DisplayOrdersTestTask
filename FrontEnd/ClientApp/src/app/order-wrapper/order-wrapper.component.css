@@ -1,9 +1,10 @@
 .wrapper-grid {
   display: grid;
   width: 100%;
-  height: 100%;
+  height: 80vh;
   grid-template-columns: auto 1fr;
   grid-template-rows: auto 1fr;
+  overflow-y: auto;
   --inprogress-color: darkmagenta;
   --completed-color: forestgreen;
 }
@@ -60,6 +61,4 @@
 
 .order-details-container {
   grid-area: 2 / 2 / 3 / 3;
-  background-color: blue;
-  height:1600px;
 }

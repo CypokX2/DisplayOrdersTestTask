@@ -1,0 +1,29 @@
+
+  <div class="outlined order-details">
+
+    <!--Header of table-->
+    <div class="details-header">Name</div>
+    <div class="details-header">Qty</div>
+    <div class="details-header">Price</div>
+    <div class="details-header">Total</div>
+
+    <ng-container *ngIf="selectedOrder">
+      <ng-container *ngFor="let proposal of sortProposals(selectedOrder.details.proposals); index as id">
+        <div class="details-item">{{proposal.product.productName}}</div>
+        <div class="details-item">{{proposal.quantity}}</div>
+        <div class="details-item">{{proposal.product.price}}</div>
+        <div class="details-item">{{proposalAmount(proposal)}}</div>
+      </ng-container>
+    </ng-container>
+    <!--Stub row if there is no enough items to fill order-details container-->
+    <div class="details-stub-item"></div>
+    <div class="details-stub-item"></div>
+    <div class="details-stub-item"></div>
+    <div class="details-stub-item"></div>
+    <!--Footer of table-->
+    <div class="details-footer">Total</div>
+    <div class="details-footer">{{totalCount()}}</div>
+    <div class="details-footer">{{averagePrice()}}</div>
+    <div class="details-footer">{{totalAmount()}}</div>
+  </div>
+
