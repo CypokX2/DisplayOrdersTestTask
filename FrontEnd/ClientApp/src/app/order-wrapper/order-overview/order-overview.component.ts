@@ -10,7 +10,7 @@ import { OrderStatus } from '../../Models/OrderStatus';
 export class OrderOverviewComponent implements OnInit {
 
     @Output() requestFetchDetails: EventEmitter<number> = new EventEmitter<number>();
-    @Input() headers: HeaderView[];
+    @Input() headers: HeaderView[];   
 
     constructor( ) { }
 

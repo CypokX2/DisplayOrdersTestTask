@@ -28,18 +28,18 @@
                       }">
         </div>
         <div [ngSwitch]="status.value">
-          <div *ngSwitchCase="orderStatusEnum.InProgress"
-               class="text-inprogress">
-            In Progress
-          </div>
-          <div *ngSwitchCase="orderStatusEnum.Complete"
-               class="text-completed">
-            Complete
-          </div>
-          <div *ngSwitchDefault
+          <p *ngSwitchCase="orderStatusEnum.InProgress"
+               class="text-inprogress text-inprogress-title">
+            
+          </p>
+          <p *ngSwitchCase="orderStatusEnum.Complete"
+               class="text-completed text-completed-title">
+            
+          </p>
+          <p *ngSwitchDefault
                class="text-default">
             {{status.key}}
-          </div>
+          </p>
         </div>      
       </div>      
     </div>

@@ -25,25 +25,7 @@
     border-color: #000;
   }
 
-.order-status {
-  width: 1.5em;
-  height: 1.5em;
-  margin: 0.3em;
-}
-.order-inprogress {
-  background-color: var(--inprogress-color);
-}
-.order-completed {
-  background-color: var(--completed-color);
-}
-.text-inprogress {
-  color: var(--inprogress-color);
-}
-.text-completed {
-  color: var(--completed-color);
-}
-.text-default {
-}
+
 
 .order-name {
   margin: 0.3em;
