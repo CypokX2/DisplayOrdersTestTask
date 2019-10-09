@@ -2,6 +2,6 @@ import { Proposal } from "./Proposal";
 
 
 export class OrderDetails {
-    public Id: number;
+    public id: number;
     public proposals: Proposal[];
 }
