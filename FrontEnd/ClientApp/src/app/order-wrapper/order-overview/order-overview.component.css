@@ -41,6 +41,8 @@
 .status-legend{
   display:grid;
   grid-template-rows:auto;
+  position:sticky;
+  bottom:0;
 }
 .status-legend-item{
   display:grid;
