@@ -42,10 +42,10 @@ namespace BackEnd.Controllers
             }
         }        
 
-        [Route(Routes.Orders.GetDetalized + "/{orderID}")]
+        [Route(Routes.Orders.GetDetalized + "/{headerId}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<Order>> GetDetails([FromRoute] Int32 orderID)
+        public async Task<ActionResult<Order>> GetDetailsByHeaderId([FromRoute] Int32 headerId)
         {
             using (var storage = await _storageFactory.BuildAsync())
             {
@@ -53,7 +53,7 @@ namespace BackEnd.Controllers
                                                      .ThenInclude(d => d.Proposals)
                                                         .ThenInclude(p => p.Product)
                                                     .Include(o => o.Header)
-                                            .Where(o => o.Id == orderID)
+                                            .Where(o => o.Header.Id == headerId)
                                             .SingleOrDefaultAsync();
                  if (result == null)
                      return BadRequest();
