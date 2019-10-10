@@ -28,4 +28,16 @@ export class OrderOverviewComponent implements OnInit {
                 return { key, value: OrderStatus[key] };
             });
     }
+
+    sortHeaders(incoming: HeaderView[]): HeaderView[] {
+        return incoming.sort((n1, n2) => {
+            return n1.orderName > n2.orderName ?
+                1
+                :
+                (n1.orderName < n2.orderName ?
+                    -1
+                    :
+                    0);
+        });
+    }
 }

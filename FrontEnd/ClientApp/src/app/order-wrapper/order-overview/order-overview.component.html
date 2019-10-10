@@ -2,7 +2,7 @@
   <div class="outlined order-overview">
     <div class="header-container">
       <div class="header-item"
-           *ngFor="let header of headers; index as id"
+           *ngFor="let header of sortHeaders(headers); index as id"
            (click)="this.requestFetchDetails.emit(header.id)">
         <div [ngClass]="{
                       'order-status': true,
