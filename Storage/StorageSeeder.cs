@@ -1,6 +1,7 @@
 ﻿using Models.Models.Storage;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Storage
@@ -26,58 +27,9 @@ namespace Storage
             var p2 = genProduct("Product#2", 10);
             var p3 = genProduct("Product#3", 5);
             var p4 = genProduct("Product#4", 10);
+            var pList = new List<Product>() { p1, p2, p3, p4 };
 
-            var o1 = new Order()
-            {
-                Header = new OrderHeader()
-                {
-                    OrderName = "Order#1",
-                    CreationMoment = DateTimeOffset.UtcNow
-                                                   .AddHours(-1)
-                                                   .AddMinutes(-1),
-                    Status = Models.Interfaces.OrderStatus.InProgress,
-                },
-                Details = new OrderDetails()
-                {
-                    Proposals = new List<Proposal>()
-                    {
-                        genProposal(p1, 8),
-                        genProposal(p2, 15),
-                        genProposal(p3, 40),
-                        genProposal(p4, 1),
-                        genProposal(p1, 8),
-                        genProposal(p2, 15),
-                        genProposal(p3, 40),
-                        genProposal(p4, 1),
-                        genProposal(p1, 8),
-                        genProposal(p2, 15),
-                        genProposal(p3, 40),
-                        genProposal(p4, 1),
-                        genProposal(p1, 8),
-                        genProposal(p2, 15),
-                        genProposal(p3, 40),
-                        genProposal(p4, 1),
-                        genProposal(p1, 8),
-                        genProposal(p2, 15),
-                        genProposal(p3, 40),
-                        genProposal(p4, 1),
-                        genProposal(p1, 8),
-                        genProposal(p2, 15),
-                        genProposal(p3, 40),
-                        genProposal(p4, 1),
-                        genProposal(p1, 8),
-                        genProposal(p2, 15),
-                        genProposal(p3, 40),
-                        genProposal(p4, 1),
-                        genProposal(p1, 8),
-                        genProposal(p2, 15),
-                        genProposal(p3, 40),
-                        genProposal(p4, 1)
-                    }
-                }
-
-
-            };
+            //that data getted from requsted model
             var o2 = new Order()
             {
                 Header = new OrderHeader()
@@ -100,7 +52,30 @@ namespace Storage
 
             };
 
-            return new List<Order>() { o1, o2 };
+            //there is "random" data, it just should be "InProgress"
+            var rand = new Random();
+            var o1 = new Order()
+            {
+                Header = new OrderHeader()
+                {
+                    OrderName = "Order#1",
+                    CreationMoment = o2.Header.CreationMoment
+                                                   .AddHours(-1)
+                                                   .AddMinutes(-1),
+                    Status = Models.Interfaces.OrderStatus.InProgress,
+                },
+                Details = new OrderDetails()
+                {
+                    Proposals =
+                    Enumerable.Range(0, 100).Select(_ => pList.Select(p=> genProposal(p, rand.Next(1,20))))
+                                         .SelectMany(pl => pl)
+                                         .ToList()
+                }
+            };
+           
+
+          
+            return new List<Order>() { o1, o2};
         }
     }
 }
