@@ -1,5 +1,5 @@
 
-## Display ordres sample task
+## Display orders sample task
 
 This project is a sample task by predefined layout.
 
