@@ -30,14 +30,18 @@ export class OrderOverviewComponent implements OnInit {
     }
 
     sortHeaders(incoming: HeaderView[]): HeaderView[] {
-        return incoming.sort((n1, n2) => {
-            return n1.orderName > n2.orderName ?
-                1
-                :
-                (n1.orderName < n2.orderName ?
-                    -1
+        if (incoming) {
+            return incoming.sort((n1, n2) => {
+                return n1.orderName > n2.orderName ?
+                    1
                     :
-                    0);
-        });
+                    (n1.orderName < n2.orderName ?
+                        -1
+                        :
+                        0);
+            });
+        }
+        else
+            return [] as HeaderView[];
     }
 }
