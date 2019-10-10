@@ -2,8 +2,9 @@
   display: grid;
   width: 100%;
   height: 80vh;
-  grid-template-columns: min-content 1fr;
-  grid-template-rows: 1fr 3fr;
+  /*grid-template-columns: min-content auto;*/
+  grid-template-columns: minmax(min-content,1fr) 3fr;
+  grid-template-rows: 1.1fr 3fr;
   overflow-y: auto;
   --inprogress-color: darkmagenta;
   --completed-color: forestgreen;
@@ -53,15 +54,49 @@
 
 .order-overview-container {
   grid-area: 1 / 1 / 3 / 2;
-  
+  display: grid;
 }
 
 .order-summary-container {
   grid-area: 1 / 2 / 2 / 3;
+  display: grid;
 }
 
 .order-details-container {
   grid-area: 2 / 2 / 3 / 3;
-  display:grid; /*grid with single cell let stretch content conviniently*/
+  display:grid; /*grid with single cell let stretch content conviniently (or I just like grids)*/
+  grid-template-columns:minmax(min-content, auto);
   min-height:0;
+}
+
+
+@media (max-width: 448px) {
+  .wrapper-grid {
+    display: grid;
+    width: 100%;
+    height: 80vh;
+    /*grid-template-columns: min-content auto;*/
+    grid-template-columns: minmax(min-content,1fr);
+    grid-template-rows: 40% min-content 100% ;
+    overflow-y: auto;
+    --inprogress-color: darkmagenta;
+    --completed-color: forestgreen;
+  }
+
+  .order-overview-container {
+    grid-area: 1 / 1 / 2 / 2;
+    display: grid;
+  }
+
+  .order-summary-container {
+    grid-area: 2 / 1 / 3 / 2;
+    display: grid;
+  }
+
+  .order-details-container {
+    grid-area: 3 / 1 / 4 / 2;
+    display: grid; /*grid with single cell let stretch content conviniently (or I just like grids)*/
+    /*height:500px;*/
+   
+  }
 }
