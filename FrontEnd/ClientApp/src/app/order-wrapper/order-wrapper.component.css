@@ -1,17 +1,28 @@
 .wrapper-grid {
   display: grid;
   width: 100%;
-  height: 80vh;
-  /*grid-template-columns: min-content auto;*/
+  height: 100%;
+  overflow-y: auto;
+  /*there is no text wich should wraps, else this properties should be overrided*/
+  word-wrap: break-word;
+  white-space: nowrap;
+  --inprogress-color: darkmagenta;
+  --inprogress-title: "In Progress";
+  --completed-color: forestgreen;
+  --completed-title: "Completed";
+  --outline-width: 0.2em;
+  --outline-style: solid;
+  --outline-color: #000;
+}
+
+
+.wrapper-grid-layout {
   grid-template-columns: minmax(min-content,1fr) 3fr;
   grid-template-rows: 1.1fr 3fr;
-  overflow-y: auto;
-  --inprogress-color: darkmagenta;
-  --completed-color: forestgreen;
 }
 
 .outlined {
-  outline: 0.2em solid #000;
+  outline: var(--outline-width) var(--outline-style) var(--outline-color);  
 }
 
 .wrapper-grid-item {
@@ -38,7 +49,7 @@
 }
 
 .text-inprogress-title::after {
-  content: "In progress";
+  content: var(--inprogress-title);
 }
 
 .text-completed {
@@ -46,7 +57,7 @@
 }
 
 .text-completed-title::after {
-  content: "Complete";
+  content: var(--completed-title);
 }
 
 .text-default {
@@ -54,7 +65,7 @@
 
 .order-overview-container {
   grid-area: 1 / 1 / 3 / 2;
-  display: grid;
+  display: grid; /*grid with single cell let stretch content conviniently (or I just like grids)*/
 }
 
 .order-summary-container {
@@ -64,23 +75,17 @@
 
 .order-details-container {
   grid-area: 2 / 2 / 3 / 3;
-  display:grid; /*grid with single cell let stretch content conviniently (or I just like grids)*/
+  display:grid; 
   grid-template-columns:minmax(min-content, auto);
   min-height:0;
 }
 
 
 @media (max-width: 448px) {
-  .wrapper-grid {
-    display: grid;
-    width: 100%;
-    height: 80vh;
-    /*grid-template-columns: min-content auto;*/
+
+  .wrapper-grid-layout {
     grid-template-columns: minmax(min-content,1fr);
-    grid-template-rows: 40% min-content 100% ;
-    overflow-y: auto;
-    --inprogress-color: darkmagenta;
-    --completed-color: forestgreen;
+    grid-template-rows: 40% min-content 100%;
   }
 
   .order-overview-container {
@@ -95,8 +100,31 @@
 
   .order-details-container {
     grid-area: 3 / 1 / 4 / 2;
-    display: grid; /*grid with single cell let stretch content conviniently (or I just like grids)*/
-    /*height:500px;*/
-   
+    display: grid; 
+  }
+}
+
+@media(max-height: 350px)
+{
+  .wrapper-grid-layout {
+    grid-template-rows: auto;
+    grid-template-columns: repeat(3,minmax(min-content,1fr));
+  }
+
+  .order-overview-container {
+    grid-area: 1 / 1 / 2 / 2;
+    display: grid;
+  }
+
+  .order-summary-container {
+    grid-area: 1 / 2 / 2 / 3;
+    display: grid;
+  }
+
+  .order-details-container {
+    grid-area: 1 / 3 / 2 / 4;
+    display: grid;
+    /*else right outline is not visible on overflow*/
+    padding-right: var(--outline-width);
   }
 }
