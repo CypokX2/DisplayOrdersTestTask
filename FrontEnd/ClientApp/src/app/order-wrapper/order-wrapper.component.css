@@ -2,8 +2,8 @@
   display: grid;
   width: 100%;
   height: 80vh;
-  grid-template-columns: auto 1fr;
-  grid-template-rows: auto 1fr;
+  grid-template-columns: min-content 1fr;
+  grid-template-rows: 1fr 3fr;
   overflow-y: auto;
   --inprogress-color: darkmagenta;
   --completed-color: forestgreen;
@@ -53,6 +53,7 @@
 
 .order-overview-container {
   grid-area: 1 / 1 / 3 / 2;
+  
 }
 
 .order-summary-container {
@@ -61,4 +62,6 @@
 
 .order-details-container {
   grid-area: 2 / 2 / 3 / 3;
+  display:grid; /*grid with single cell let stretch content conviniently*/
+  min-height:0;
 }

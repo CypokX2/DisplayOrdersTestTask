@@ -1,29 +1,29 @@
 
   <div class="outlined order-details">
-
     <!--Header of table-->
-    <div class="details-header">Name</div>
-    <div class="details-header">Qty</div>
-    <div class="details-header">Price</div>
-    <div class="details-header">Total</div>
-
-    <ng-container *ngIf="selectedOrder">
-      <ng-container *ngFor="let proposal of sortProposals(selectedOrder.details.proposals); index as id">
-        <div class="details-item">{{proposal.product.productName}}</div>
-        <div class="details-item">{{proposal.quantity}}</div>
-        <div class="details-item">{{proposal.product.price}}</div>
-        <div class="details-item">{{proposalAmount(proposal)}}</div>
+    <header class="relayed-grid details-header-layout">
+      <div>Product Name</div>
+      <div>Qty</div>
+      <div>Price</div>
+      <div>Total</div>
+    </header>
+    <!--Table body-->
+    <div class="relayed-grid details-body-layout">
+      <ng-container *ngIf="selectedOrder">
+        <ng-container *ngFor="let proposal of sortProposals(selectedOrder.details.proposals); index as id">
+          <div >{{proposal.product.productName}}</div>
+          <div >{{proposal.quantity}}</div>
+          <div >{{proposal.product.price}}</div>
+          <div >{{proposalAmount(proposal)}}</div>
+        </ng-container>
       </ng-container>
-    </ng-container>
-    <!--Stub row if there is no enough items to fill order-details container-->
-    <div class="details-stub-item"></div>
-    <div class="details-stub-item"></div>
-    <div class="details-stub-item"></div>
-    <div class="details-stub-item"></div>
+    </div>    
     <!--Footer of table-->
-    <div class="details-footer">Total</div>
-    <div class="details-footer">{{totalCount()}}</div>
-    <div class="details-footer">{{averagePrice()}}</div>
-    <div class="details-footer">{{totalAmount()}}</div>
+    <footer class="relayed-grid details-footer-layout">
+      <div>Total</div>
+      <div>{{totalCount()}}</div>
+      <div>{{averagePrice()}}</div>
+      <div>{{totalAmount()}}</div>
+    </footer>   
   </div>
 
