@@ -1,5 +1,6 @@
 
 @import '../order-wrapper.component.css';
+@import '../../app.component.css';
 
 .order-overview {
   display: grid;
@@ -61,3 +62,7 @@
   white-space: nowrap;
 }
 
+.order-overview-loader{
+  align-self:center;
+  justify-self:center;
+}

@@ -11,7 +11,8 @@ import { HeaderView } from '../Scaffolding/ViewModels/HeaderView';
 export class OrderOverviewComponent implements OnInit {
 
     @Output() requestFetchDetails: EventEmitter<number> = new EventEmitter<number>();
-    @Input() headers: HeaderView[];   
+    @Input() headers: HeaderView[];
+    @Input() stubOnFetching: boolean = false;
 
     constructor( ) { }
 

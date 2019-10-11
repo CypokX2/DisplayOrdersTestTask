@@ -3,3 +3,29 @@
   width: 90vw;
   margin: 10vh 5vw 10vh 5vw;
 }
+
+.loadingSpinner {
+  display: inline-block;
+  width: 2em;
+  height: 2em;
+  min-height:2em;
+  min-width:2em;
+  border: 0.2em solid #fff;
+  border-radius: 50%;
+  border-top-color: #000;
+  border-bottom-color: #000;
+  animation: spin 1s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+  -webkit-animation: spin 1s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+}
+
+@keyframes spin {
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes spin {
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}

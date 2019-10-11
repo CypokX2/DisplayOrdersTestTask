@@ -14,19 +14,19 @@ import { OrderDetailsComponent } from './order-wrapper/order-details/order-detai
 @NgModule({
   declarations: [
     AppComponent,
-        OrderWrapperComponent,
-        OrderOverviewComponent,
-        OrderSummaryComponent,
-        OrderDetailsComponent
+    OrderWrapperComponent,
+    OrderOverviewComponent,
+    OrderSummaryComponent,
+    OrderDetailsComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
       RouterModule.forRoot([
-          { path: '', redirectTo: '/orders', pathMatch: 'full' },
-          { path: '**', redirectTo: '/orders' },
-          { path: 'orders', component: OrderWrapperComponent },
+          { path: 'orders/:routedApiBaseUrl/:routedPendData', component: OrderWrapperComponent },
+          { path: '**', redirectTo: '/orders/http:%2F%2Flocalhost:5050%2F/2000' }
+          
     ])
   ],
   providers: [DatePipe],

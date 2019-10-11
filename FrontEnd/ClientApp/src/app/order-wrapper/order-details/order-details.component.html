@@ -1,29 +1,36 @@
 
   <div class="outlined order-details">
-    <!--Header of table-->
-    <header class="relayed-grid details-header-layout">
-      <div>Product Name</div>
-      <div>Qty</div>
-      <div>Price</div>
-      <div>Total</div>
-    </header>
-    <!--Table body-->
-    <div class="relayed-grid details-body-layout">
-      <ng-container *ngIf="selectedOrder">
-        <ng-container *ngFor="let proposal of sortProposals(selectedOrder.details.proposals); index as id">
-          <div >{{proposal.product.productName}}</div>
-          <div >{{proposal.quantity}}</div>
-          <div >{{proposal.product.price}}</div>
-          <div >{{proposalAmount(proposal)}}</div>
+    <ng-container *ngIf="stubOnFetching; then stubDetails; else displayDetails">
+    </ng-container>
+    <ng-template #stubDetails>
+      <div class="loadingSpinner order-details-loader"></div>
+    </ng-template>
+    <ng-template #displayDetails>
+      <!--Header of table-->
+      <header class="relayed-grid details-header-layout">
+        <div>Product Name</div>
+        <div>Qty</div>
+        <div>Price</div>
+        <div>Total</div>
+      </header>
+      <!--Table body-->
+      <div class="relayed-grid details-body-layout">
+        <ng-container *ngIf="selectedOrder">
+          <ng-container *ngFor="let proposal of sortProposals(selectedOrder.details.proposals); index as id">
+            <div>{{proposal.product.productName}}</div>
+            <div>{{proposal.quantity}}</div>
+            <div>{{proposal.product.price}}</div>
+            <div>{{proposalAmount(proposal)}}</div>
+          </ng-container>
         </ng-container>
-      </ng-container>
-    </div>    
-    <!--Footer of table-->
-    <footer class="relayed-grid details-footer-layout">
-      <div>Total</div>
-      <div>{{totalCount()}}</div>
-      <div>{{averagePrice()}}</div>
-      <div>{{totalAmount()}}</div>
-    </footer>   
+      </div>
+      <!--Footer of table-->
+      <footer class="relayed-grid details-footer-layout">
+        <div>Total</div>
+        <div>{{totalCount()}}</div>
+        <div>{{averagePrice()}}</div>
+        <div>{{totalAmount()}}</div>
+      </footer>
+    </ng-template>
   </div>
 

@@ -1,11 +1,13 @@
 
 @import '../order-wrapper.component.css';
+@import '../../app.component.css';
 
 .order-summary {
   display: grid;
   height: 100%;
   width: 100%;
   grid-template-columns:min-content 1fr;
+  grid-template-rows:repeat(4,auto);
   align-items: center;
   justify-items: left;
   grid-column-gap:1em;
@@ -14,15 +16,42 @@
   .order-summary > * {
     margin:0.5em;
   }
-  
 
-.status-bar{
-  display:grid;
-  grid-template-columns:auto,1fr;
-  grid-auto-flow:column;
+  .number-header{
+    grid-area: 1 / 1 / 2 / 2;
+  }
+.number-value {
+  grid-area: 1 / 2 / 2 / 3;
+}
+.date-header {
+  grid-area: 2 / 1 / 3 / 2;
+}
+.date-value {
+  grid-area: 2 / 2 / 3 / 3;
+}
+.status-header {
+  grid-area: 3 / 1 / 4 / 2;
+}
+.status-bar {
+  grid-area: 3 / 2 / 4 / 3;
+  display: grid;
+  grid-template-columns: auto,1fr;
+  grid-auto-flow: column;
+}
+.total-header {
+  grid-area: 4 / 1 / 5 / 2;
+}
+.total-value {
+  grid-area: 4 / 2 / 5 / 3;
 }
 
-.summary-last-raw{
+.total-row{
   margin-top:1em;
+}
+
+.order-summary-loader {
+  grid-area: 1 / 2 / 5 / 3;
+  align-self: center;
+  justify-self: center;
 }
 

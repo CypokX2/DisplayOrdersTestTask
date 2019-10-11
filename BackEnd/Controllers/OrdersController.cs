@@ -33,9 +33,6 @@ namespace BackEnd.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult<List<OrderHeader>>> GetHeaders()
         {
-
-            //do not forget to test some spinner if there is long delay
-            // await Task.delay(1_000);          
             using (var storage = await _storageFactory.BuildAsync())
             {                
                 return await storage.Headers.ToListAsync();

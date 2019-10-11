@@ -13,6 +13,7 @@ import { calcTotalProposalAmount } from '../../Models/Proposal';
 export class OrderDetailsComponent implements OnInit {
 
     @Input('selectedOrder') selectedOrder: OrderView
+    @Input() stubOnFetching: boolean = false;
 
     constructor( ) { }
 
