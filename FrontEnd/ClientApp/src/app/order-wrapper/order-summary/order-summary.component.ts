@@ -13,7 +13,8 @@ import { getTotalOrderAmount } from '../../Models/OrderDetails';
 export class OrderSummaryComponent implements OnInit {
     
 
-    @Input('selectedOrder')  selectedOrder : OrderView
+    @Input('selectedOrder') selectedOrder: OrderView
+    @Input() stubOnFetching: boolean = false;
 
     constructor( ) { }
 

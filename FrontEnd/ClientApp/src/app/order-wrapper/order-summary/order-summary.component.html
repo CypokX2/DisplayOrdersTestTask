@@ -1,27 +1,36 @@
 
-<div class="outlined order-summary">
-  <div style="grid-row-start:1;">Number:</div>
-  <div>{{selectedOrder?.header.orderName}}</div>
-  <div style="grid-row-start:2;">Date:</div>
-  <div>{{selectedOrder?.header.creationMomentString}}</div>
-  <div style="grid-row-start:3;">Status:</div>
-  <div class="status-bar"> 
-      <div *ngIf="selectedOrder"
-           [ngClass]="{
+  <div class="outlined order-summary">
+
+    <div class="number-header">Number:</div>    
+    <div class="date-header">Date:</div>    
+    <div class="status-header">Status:</div>   
+    <div class="total-row total-header">Total:</div>    
+
+    <ng-container *ngIf="stubOnFetching; then stubValueContainers; else displayValueContainers">
+    </ng-container>
+    <ng-template #stubValueContainers>
+      <div class="loadingSpinner order-summary-loader"></div>
+    </ng-template>
+    <ng-template #displayValueContainers>
+      <div class="number-value">{{selectedOrder?.header.orderName}}</div>
+      <div class="date-value">{{selectedOrder?.header.creationMomentString}}</div>
+      <div class="status-bar">
+        <div *ngIf="selectedOrder"
+             [ngClass]="{
                       'order-status': true,
                       'order-inprogress': selectedOrder.header.status === orderStatusEnum.InProgress,
                       'order-completed': selectedOrder.header.status === orderStatusEnum.Complete
                       }">
-      </div>
-      <div *ngIf="selectedOrder"
-         [ngClass]="{
+        </div>
+        <div *ngIf="selectedOrder"
+             [ngClass]="{
                       'text-inprogress-title': selectedOrder.header.status === orderStatusEnum.InProgress,
                       'text-completed-title': selectedOrder.header.status === orderStatusEnum.Complete
                       }"></div>
 
-    
-    </div>
-    <div class="summary-last-raw" style="grid-row-start:4;">Total:</div>
-    <div class="summary-last-raw">{{totalAmount()}}</div>
+
+      </div>
+      <div class="total-row total-value">{{totalAmount()}}</div>
+    </ng-template>
   </div>
 

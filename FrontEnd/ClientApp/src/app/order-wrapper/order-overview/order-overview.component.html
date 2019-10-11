@@ -1,23 +1,32 @@
 
   <div class="outlined order-overview">
-    <div class="header-container">
-      <div class="header-item"
-           *ngFor="let header of sortHeaders(headers); index as id"
-           (click)="this.requestFetchDetails.emit(header.id)">
-        <div [ngClass]="{
+    
+      <ng-container *ngIf="stubOnFetching; then stubHeaderContainer; else displayHeaderContainer">
+      </ng-container>
+      <ng-template #stubHeaderContainer>
+        <div class="loadingSpinner order-overview-loader"></div>
+      </ng-template>
+      <ng-template #displayHeaderContainer>
+        <div class="header-container">
+          <div class="header-item"
+               *ngFor="let header of sortHeaders(headers); index as id"
+               (click)="this.requestFetchDetails.emit(header.id)">
+            <div [ngClass]="{
                       'order-status': true,
                       'order-inprogress': header.status === orderStatusEnum.InProgress,
                       'order-completed': header.status === orderStatusEnum.Complete
                       }">
+            </div>
+            <div class="order-name">
+              {{header.orderName}}
+            </div>
+            <div class="order-moment">
+              {{header.creationMomentString}}
+            </div>
+          </div>
         </div>
-        <div class="order-name">
-          {{header.orderName}}
-        </div>
-        <div class="order-moment">
-          {{header.creationMomentString}}
-        </div>
-      </div>
-    </div>
+      </ng-template>
+    
     <div class="status-legend outlined">
       <div class="status-legend-item"
            *ngFor="let status of orderStatusNames">
@@ -29,18 +38,18 @@
         </div>
         <div [ngSwitch]="status.value">
           <p *ngSwitchCase="orderStatusEnum.InProgress"
-               class="text-inprogress text-inprogress-title">
-            
+             class="text-inprogress text-inprogress-title">
+
           </p>
           <p *ngSwitchCase="orderStatusEnum.Complete"
-               class="text-completed text-completed-title">
-            
+             class="text-completed text-completed-title">
+
           </p>
           <p *ngSwitchDefault
-               class="text-default">
+             class="text-default">
             {{status.key}}
           </p>
-        </div>      
-      </div>      
+        </div>
+      </div>
     </div>
   </div>

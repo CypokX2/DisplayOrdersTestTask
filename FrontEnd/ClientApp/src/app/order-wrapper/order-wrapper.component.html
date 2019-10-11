@@ -2,15 +2,18 @@
   <order-overview
                   class="wrapper-grid-item order-overview-container"
                   [headers] = "headers"
+                  [stubOnFetching] ="loadingHeaders"
                   (requestFetchDetails)="fetchDetails($event)">
   </order-overview>
   <order-summary
                  class="wrapper-grid-item order-summary-container"
-                 [selectedOrder]="selectedOrder">
+                 [selectedOrder]="selectedOrder"
+                 [stubOnFetching] ="fetchingDetails">
     
   </order-summary>
   <order-details class="wrapper-grid-item order-details-container"
-                 [selectedOrder]="selectedOrder">
+                 [selectedOrder]="selectedOrder"
+                 [stubOnFetching] ="fetchingDetails">
 
   </order-details>
 
